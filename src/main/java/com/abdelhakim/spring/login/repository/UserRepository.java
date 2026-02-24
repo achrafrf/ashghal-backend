@@ -1,0 +1,11 @@
+package com.abdelhakim.spring.login.repository;
+
+import java.util.Optional;
+import org.springframework.data.mongodb.repository.MongoRepository; // Import MongoDB
+import com.abdelhakim.spring.login.models.User;
+
+public interface UserRepository extends MongoRepository<User, String> { // extends MongoRepository
+  Optional<User> findByUsername(String username);
+  Boolean existsByUsername(String username);
+  Boolean existsByEmail(String email);
+}
